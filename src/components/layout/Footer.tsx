@@ -6,7 +6,7 @@ const Footer = memo(() => {
   return (
     <footer className="py-12 border-t border-border/20 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-6 gap-6 mb-8">
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center">
@@ -23,7 +23,7 @@ const Footer = memo(() => {
           </div>
 
           <div>
-            <h4 className="font-mono font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Learning</h4>
             <div className="flex flex-col gap-2">
               <Link to="/modules" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 All Modules
@@ -31,9 +31,42 @@ const Footer = memo(() => {
               <Link to="/paths" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Career Paths
               </Link>
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Course Versions
+              </Link>
+              <Link to="/quiz" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Path Quiz
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Certifications</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/certifications" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                All Certifications
+              </Link>
               <Link to="/resources" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Resources
               </Link>
+              <Link to="/trainer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Become Trainer
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Support</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                FAQ
+              </Link>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Contact Us
+              </a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Support Tickets
+              </a>
             </div>
           </div>
 

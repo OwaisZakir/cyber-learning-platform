@@ -12,6 +12,11 @@ const Modules = lazy(() => import("./pages/Modules"));
 const ModuleDetail = lazy(() => import("./pages/ModuleDetail"));
 const Paths = lazy(() => import("./pages/Paths"));
 const Resources = lazy(() => import("./pages/Resources"));
+const CourseVersions = lazy(() => import("./pages/CourseVersions"));
+const LearningPathSelector = lazy(() => import("./pages/LearningPathSelector"));
+const TrainerProgram = lazy(() => import("./pages/TrainerProgram"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Certifications = lazy(() => import("./pages/Certifications"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -36,6 +41,11 @@ const App = () => (
               <Route path="/modules/:id" element={<ModuleDetail />} />
               <Route path="/paths" element={<Paths />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/courses" element={<CourseVersions />} />
+              <Route path="/quiz" element={<LearningPathSelector />} />
+              <Route path="/trainer" element={<TrainerProgram />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/certifications" element={<Certifications />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
