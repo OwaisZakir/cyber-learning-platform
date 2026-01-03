@@ -239,6 +239,139 @@ const Home = memo(() => {
         </div>
       </section>
 
+      {/* Quick Action Cards */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-mono text-2xl md:text-4xl font-bold text-foreground mb-4">
+              Choose Your <span className="text-gradient-cyber">Starting Point</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Whether you're just curious or ready to transform your career, we have the right option for you.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: 'Take the Quiz',
+                description: 'Get personalized path recommendations based on your goals and experience.',
+                link: '/quiz',
+                color: 'hsl(180, 100%, 50%)',
+              },
+              {
+                icon: BookOpen,
+                title: 'Browse Courses',
+                description: 'Explore all 5 course versions from Lite to Elite.',
+                link: '/courses',
+                color: 'hsl(45, 100%, 50%)',
+              },
+              {
+                icon: Users,
+                title: 'Become a Trainer',
+                description: 'Share your expertise and transform careers.',
+                link: '/trainer',
+                color: 'hsl(0, 70%, 50%)',
+              },
+            ].map((card, index) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <Link
+                  to={card.link}
+                  className="block h-full p-6 rounded-xl glass border border-border/30 hover:border-primary/40 transition-all"
+                >
+                  <div
+                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                    style={{
+                      background: `${card.color}20`,
+                      border: `1px solid ${card.color}40`,
+                    }}
+                  >
+                    <card.icon className="w-6 h-6" style={{ color: card.color }} />
+                  </div>
+                  <h3 className="font-mono font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{card.description}</p>
+                  <div className="flex items-center gap-2 mt-4 text-sm font-mono text-primary group-hover:translate-x-1 transition-transform">
+                    Learn more <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Extended */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-mono text-2xl md:text-4xl font-bold text-foreground mb-4">
+              What Makes Us <span className="text-gradient-cyber">Different</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'Industry-Ready Curriculum',
+                description: 'Designed with input from security professionals and trainers. Real-world scenarios and tools used in actual jobs.',
+              },
+              {
+                title: 'Multiple Learning Paths',
+                description: 'Red Team, Blue Team, Purple Team, Cloud Security, or GRC. Choose your specialization.',
+              },
+              {
+                title: 'Flexible Learning Formats',
+                description: 'Instructor-led, online cohorts, self-paced with mentors, or 1-on-1 VIP coaching.',
+              },
+              {
+                title: 'Comprehensive Support',
+                description: 'Live office hours, mentor access, community forums, and career guidance throughout.',
+              },
+              {
+                title: 'Hands-on Labs',
+                description: '100+ hours of practical labs with real tools. Safe, isolated lab environments for practice.',
+              },
+              {
+                title: 'Career Transformation',
+                description: 'Move from zero to professional. Job placement assistance and portfolio building support.',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="p-6 rounded-xl glass border border-border/30 hover:border-primary/30 transition-all"
+              >
+                <h3 className="font-mono font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
@@ -254,15 +387,23 @@ const Home = memo(() => {
                 Ready to Start Your Journey?
               </h2>
               <p className="text-muted-foreground mb-8">
-                Explore our comprehensive 13-module curriculum designed to take you from zero to hero in cybersecurity.
+                Take our path selector quiz to get personalized recommendations, or explore the curriculum directly.
               </p>
-              <Link
-                to="/modules"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-mono font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
-              >
-                View All Modules
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  to="/quiz"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-mono font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
+                >
+                  Take the Quiz
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/modules"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-mono font-semibold glass border border-border/30 hover:border-primary/50 transition-all"
+                >
+                  Explore Modules
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
