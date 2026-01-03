@@ -6,7 +6,7 @@ const Footer = memo(() => {
   return (
     <footer className="py-12 border-t border-border/20 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-5 gap-8 mb-8">
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center">
