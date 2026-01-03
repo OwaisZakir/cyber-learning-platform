@@ -159,10 +159,6 @@ const FAQ = memo(() => {
     );
   }, [search]);
 
-  const categories = useMemo(() => {
-    return [...new Set(faqItems.map((item) => item.category))];
-  }, []);
-
   const groupedFAQs = useMemo(() => {
     const grouped: Record<string, FAQItem[]> = {};
     filteredFAQs.forEach((item) => {
