@@ -39,6 +39,9 @@ const App = () => (
               <Route path="/modules/:id" element={<ModuleDetail />} />
               <Route path="/paths" element={<Paths />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/courses" element={<CourseVersions />} />
+              <Route path="/quiz" element={<LearningPathSelector />} />
+              <Route path="/trainer" element={<TrainerProgram />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
