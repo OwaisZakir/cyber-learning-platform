@@ -8,6 +8,9 @@ const navItems = [
   { path: '/', label: 'Home' },
   { path: '/modules', label: 'Modules' },
   { path: '/paths', label: 'Career Paths' },
+  { path: '/courses', label: 'Courses' },
+  { path: '/quiz', label: 'Path Quiz' },
+  { path: '/trainer', label: 'Become Trainer' },
   { path: '/resources', label: 'Resources' },
 ];
 
