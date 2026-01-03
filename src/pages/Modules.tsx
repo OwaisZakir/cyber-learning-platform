@@ -1,9 +1,12 @@
-import { memo, useState, useMemo } from 'react';
+import { memo, useState, useMemo, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Clock, ChevronRight, Search, Filter } from 'lucide-react';
+import { Clock, ChevronRight, Search, CheckCircle2 } from 'lucide-react';
 import { modulesData } from '@/data/modules';
 import { Input } from '@/components/ui/input';
+import { useProgress } from '@/hooks/useProgress';
+
+const ProgressTracker = lazy(() => import('@/components/ProgressTracker'));
 
 const levelColors = {
   beginner: 'hsl(180, 100%, 50%)',
@@ -20,6 +23,7 @@ const getModuleLevel = (id: number): 'beginner' | 'intermediate' | 'advanced' =>
 const Modules = memo(() => {
   const [search, setSearch] = useState('');
   const [levelFilter, setLevelFilter] = useState<string | null>(null);
+  const { isModuleComplete } = useProgress();
 
   const filteredModules = useMemo(() => {
     return modulesData.filter((module) => {
@@ -83,22 +87,32 @@ const Modules = memo(() => {
           </div>
         </motion.div>
 
-        {/* Modules Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredModules.map((module, index) => {
-            const level = getModuleLevel(module.id);
-            return (
-              <motion.div
-                key={module.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <Link
-                  to={`/modules/${module.id}`}
-                  className="block h-full p-6 rounded-2xl glass border border-border/30 hover:border-primary/40 transition-all group relative overflow-hidden"
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Modules Grid */}
+          <div className="lg:col-span-3 grid md:grid-cols-2 gap-6">
+            {filteredModules.map((module, index) => {
+              const level = getModuleLevel(module.id);
+              const completed = isModuleComplete(module.id);
+              return (
+                <motion.div
+                  key={module.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  {/* Glow effect */}
+                  <Link
+                    to={`/modules/${module.id}`}
+                    className={`block h-full p-6 rounded-2xl glass border transition-all group relative overflow-hidden ${
+                      completed ? 'border-primary/50 bg-primary/5' : 'border-border/30 hover:border-primary/40'
+                    }`}
+                  >
+                    {completed && (
+                      <div className="absolute top-3 right-3 z-20">
+                        <CheckCircle2 className="w-6 h-6 text-primary" />
+                      </div>
+                    )}
+                    {/* Glow effect */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
@@ -166,10 +180,20 @@ const Modules = memo(() => {
                       )}
                     </div>
                   </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Progress Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              <Suspense fallback={<div className="h-64 glass rounded-2xl animate-pulse" />}>
+                <ProgressTracker />
+              </Suspense>
+            </div>
+          </div>
         </div>
 
         {filteredModules.length === 0 && (
