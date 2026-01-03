@@ -15,6 +15,7 @@ const Resources = lazy(() => import("./pages/Resources"));
 const CourseVersions = lazy(() => import("./pages/CourseVersions"));
 const LearningPathSelector = lazy(() => import("./pages/LearningPathSelector"));
 const TrainerProgram = lazy(() => import("./pages/TrainerProgram"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
