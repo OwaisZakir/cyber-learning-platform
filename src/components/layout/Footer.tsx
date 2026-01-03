@@ -23,7 +23,7 @@ const Footer = memo(() => {
           </div>
 
           <div>
-            <h4 className="font-mono font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Learning</h4>
             <div className="flex flex-col gap-2">
               <Link to="/modules" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 All Modules
@@ -31,8 +31,26 @@ const Footer = memo(() => {
               <Link to="/paths" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Career Paths
               </Link>
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Course Versions
+              </Link>
+              <Link to="/quiz" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Path Quiz
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Community</h4>
+            <div className="flex flex-col gap-2">
               <Link to="/resources" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Resources
+              </Link>
+              <Link to="/trainer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Become Trainer
+              </Link>
+              <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                FAQ
               </Link>
             </div>
           </div>
