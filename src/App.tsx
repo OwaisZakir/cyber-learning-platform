@@ -16,6 +16,7 @@ const CourseVersions = lazy(() => import("./pages/CourseVersions"));
 const LearningPathSelector = lazy(() => import("./pages/LearningPathSelector"));
 const TrainerProgram = lazy(() => import("./pages/TrainerProgram"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Certifications = lazy(() => import("./pages/Certifications"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
