@@ -7,11 +7,11 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { path: '/', label: 'Home' },
   { path: '/modules', label: 'Modules' },
-  { path: '/paths', label: 'Career Paths' },
+  { path: '/paths', label: 'Paths' },
   { path: '/courses', label: 'Courses' },
-  { path: '/quiz', label: 'Path Quiz' },
+  { path: '/quiz', label: 'Quiz' },
+  { path: '/certifications', label: 'Certs' },
   { path: '/trainer', label: 'Trainer' },
-  { path: '/resources', label: 'Resources' },
   { path: '/faq', label: 'FAQ' },
 ];
 
