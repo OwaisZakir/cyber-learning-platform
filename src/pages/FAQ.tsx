@@ -1,8 +1,7 @@
-import { memo, useState } from 'react';
+import { memo, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useMemo } from 'react';
 
 interface FAQItem {
   category: string;
