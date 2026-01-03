@@ -10,8 +10,9 @@ const navItems = [
   { path: '/paths', label: 'Career Paths' },
   { path: '/courses', label: 'Courses' },
   { path: '/quiz', label: 'Path Quiz' },
-  { path: '/trainer', label: 'Become Trainer' },
+  { path: '/trainer', label: 'Trainer' },
   { path: '/resources', label: 'Resources' },
+  { path: '/faq', label: 'FAQ' },
 ];
 
 const Header = memo(() => {
