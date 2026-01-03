@@ -41,17 +41,32 @@ const Footer = memo(() => {
           </div>
 
           <div>
-            <h4 className="font-mono font-semibold text-foreground mb-4">Community</h4>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Certifications</h4>
             <div className="flex flex-col gap-2">
+              <Link to="/certifications" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                All Certifications
+              </Link>
               <Link to="/resources" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Resources
               </Link>
               <Link to="/trainer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Become Trainer
               </Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-mono font-semibold text-foreground mb-4">Support</h4>
+            <div className="flex flex-col gap-2">
               <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 FAQ
               </Link>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Contact Us
+              </a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Support Tickets
+              </a>
             </div>
           </div>
 
