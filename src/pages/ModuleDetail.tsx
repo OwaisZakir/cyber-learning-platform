@@ -9,10 +9,12 @@ import { Button } from '@/components/ui/button';
 const ModuleDetail = memo(() => {
   const { id } = useParams();
   const moduleId = parseInt(id || '0', 10);
+  const { toggleModuleComplete, toggleLessonComplete, isModuleComplete, isLessonComplete } = useProgress();
 
   const module = useMemo(() => modulesData.find((m) => m.id === moduleId), [moduleId]);
   const prevModule = useMemo(() => modulesData.find((m) => m.id === moduleId - 1), [moduleId]);
   const nextModule = useMemo(() => modulesData.find((m) => m.id === moduleId + 1), [moduleId]);
+  const completed = useMemo(() => isModuleComplete(moduleId), [moduleId, isModuleComplete]);
 
   if (!module) {
     return <Navigate to="/modules" replace />;
