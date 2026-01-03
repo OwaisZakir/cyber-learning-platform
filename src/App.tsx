@@ -43,6 +43,7 @@ const App = () => (
               <Route path="/courses" element={<CourseVersions />} />
               <Route path="/quiz" element={<LearningPathSelector />} />
               <Route path="/trainer" element={<TrainerProgram />} />
+              <Route path="/faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
